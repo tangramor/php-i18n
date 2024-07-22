@@ -1,0 +1,27 @@
+{
+    "authors": [
+        {
+            "email": "github@philworld.de",
+            "name": "Philipp Schröer"
+        },
+        {
+            "email": "tangramor@gmail.com",
+            "name": "Wang Junhua"
+        }
+    ],
+    "autoload": {
+        "files": [ "i18n.php" ]
+    },
+    "description": "Simple i18n class for PHP",
+    "license": "MIT",
+    "name": "tangramor/php-i18n",
+    "homepage": "https://github.com/tangramor/php-i18n",
+    "support": {
+        "issues": "https://github.com/tangramor/php-i18n/issues",
+        "source": "https://github.com/tangramor/php-i18n"
+    },
+    "type": "library",
+    "require": {
+        "php": ">= 5.3"
+    }
+}
