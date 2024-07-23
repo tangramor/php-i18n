@@ -4,6 +4,9 @@ A simple and efficient internationalization (i18n) library for PHP that allows y
 
 This project is inspired by the **[i18n library](https://github.com/Philipp15b/php-i18n)** by **Philipp Schröer**. The original library cannot switch languages dynamically during runtime, which is a limitation. This fork aims to address this issue and provide a more flexible solution.
 
+If you don't need the dynamic language switching feature, you can still use the original **[i18n library](https://github.com/Philipp15b/php-i18n)** by **Philipp Schröer**.
+
+
 ## Features
 
 - Supports language variants like "en-US", "zh-CN", etc.
@@ -39,6 +42,17 @@ greeting = "Hello, World!"
 somethingother = "Something other..."
 ```
 
+#### Settings
+
+- Language file path (default: `./lang/{LANGUAGE}.ini`)
+- Cache file path (default: `./langcache/`)
+- Preserve language region variants: if set to true, region variants in language code strings such as en-US and en-GB will be preserved, otherwise will be trimmed to en (default: `true`, **NOTE** in the original i18n lib this value is default *false* )
+- The fallback language, if no one of the user languages is available (default: `en-US`, **NOTE** in the original i18n lib this value is default *en* )
+- A forced language, if you want to force a language (default: `none`)
+- The section separator: this is used to seperate the sections in the language class. If you set the separator to _abc_ you could access your localized strings via $L->t('category_abc_stringname') if you use categories in your ini. (default: `_`)
+- Merge keys from the fallback language into the current language. (default: `false`)
+
+
 ### Useage
 
 1. **Initialization**: Create an instance of the `i18n` class and initialize it with your desired settings.
@@ -62,9 +76,9 @@ $i18n->init();
 ```php
 $i18n->setCachePath('/tmp/langcache');  //Cache file path (default: ./langcache/)
 $i18n->setFilePath('/app/lang/{LANGUAGE}.ini'); // language file path (default: ./lang/{LANGUAGE}.ini)
-$i18n->setMergeFallback(false); // make keys available from the fallback language (default: en-US)
+$i18n->setMergeFallback(false); // make keys available from the fallback language (default: false)
 $i18n->setLangVariantEnabled(false);    //Allow region variants such as "en-us", "en-gb" etc. If set to false, "en" will be provided. (default: true)
-$i18n->setSectionSeparator('_');    //this is used to seperate the sections in the language class. If you set the separator to _abc_ you could access your localized strings via $L->t('category_abc_stringname') if you use categories in your ini. (default: _)
+$i18n->setSectionSeparator('_');    //this is used to seperate the sections in the language class (default: _)
 
 $i18n->init();
 ```

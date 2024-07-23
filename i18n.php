@@ -140,12 +140,7 @@ class i18n {
         return $translations;
     }
 
-    public function init() {
-        // check if we are already initialized
-        // if ($this->isInitialized()) {
-        //     throw new BadMethodCallException('This object from class ' . __CLASS__ . ' is already initialized. It is not possible to init one object twice!');
-        // }
-        
+    public function init() {     
         $this->langs = $this->getTranslations($this->filePath);
 
         global $cachePath;
@@ -169,6 +164,10 @@ class i18n {
             throw new RuntimeException('No language file was found.');
         }
 
+        if( ! is_dir($this->cachePath)) {
+            mkdir($this->cachePath, 0755, true);
+        }
+
         foreach ($this->langs as $lang => $langClass) {
             $this->cacheFilePath = $this->cachePath . '/php_i18n_' . md5_file(__FILE__) . '_' . $lang . '.cache.php';
             $langFilePath = $this->getConfigFilename($lang);
@@ -187,9 +186,6 @@ class i18n {
                     . '    $return = constant("self::".$string);'."\n"
                     . '    return $args ? vsprintf($return, $args) : $return;'
                     . "\n}\n}\n";
-
-                if( ! is_dir($this->cachePath))
-                    mkdir($this->cachePath, 0755, true);
 
                 if (file_put_contents($this->cacheFilePath, $compiled) === FALSE) {
                     throw new Exception("Could not write cache file to path '" . $this->cacheFilePath . "'. Is it writable?");
@@ -227,37 +223,31 @@ class i18n {
     }
 
     public function setFilePath($filePath) {
-        // $this->fail_after_init();
         $this->filePath = $filePath;
     }
 
     public function setCachePath($cachePath) {
-        // $this->fail_after_init();
         $this->cachePath = $cachePath;
     }
 
     public function setLangVariantEnabled($isLangVariantEnabled) {
-        // $this->fail_after_init();
+
         $this->isLangVariantEnabled = $isLangVariantEnabled;
     }
 
     public function setFallbackLang($fallbackLang) {
-        // $this->fail_after_init();
         $this->fallbackLang = $fallbackLang;
     }
 
     public function setMergeFallback($mergeFallback) {
-        // $this->fail_after_init();
         $this->mergeFallback = $mergeFallback;
     }
 
     public function setForcedLang($forcedLang) {
-        // $this->fail_after_init();
         $this->forcedLang = $forcedLang;
     }
 
     public function setSectionSeparator($sectionSeparator) {
-        // $this->fail_after_init();
         $this->sectionSeparator = $sectionSeparator;
     }
 
