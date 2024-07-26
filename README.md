@@ -1,3 +1,5 @@
+## [中文](README.zh-CN.md)
+
 # PHP i18n Library
 
 A simple and efficient internationalization (i18n) library for PHP that allows you to manage multiple languages in your application.
