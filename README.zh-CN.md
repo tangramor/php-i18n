@@ -32,7 +32,7 @@ composer require tangramor/php-i18n
 
 这个分支禁用了 YAML 格式，仅支持 **INI** 格式。因为要支持 YAML，我们需要添加依赖 "mustangostang/spyc" 用于 YAML，这对这个项目来说是不必要的。
 
-### 语言文件示例 (en-US.ini)
+#### 语言文件示例 (en-US.ini)
 
 ```ini
 greeting = "Hello, World!"
@@ -41,7 +41,7 @@ greeting = "Hello, World!"
 somethingother = "Something other..."
 ```
 
-### 设置
+#### 设置
 
 - 语言文件路径（默认：`./lang/{LANGUAGE}.ini`）
 - 缓存文件路径（默认：`./langcache/`）
@@ -108,11 +108,11 @@ $L2 = LangManager::getInstance('zh-CN');
 $this->assertEquals("世界，你好！", $L2->t('greeting'));
 ```
 
-### 缓存
+## 缓存
 
 该库使用缓存机制存储编译后的语言文件。确保缓存路径目录可写。
 
-### 用户语言检测的工作原理
+## 用户语言检测的工作原理
 
 此类尝试通过以下顺序检测用户的语言：
 
@@ -172,7 +172,7 @@ axios.interceptors.request.use(function (config) {
 
 这个非常基本的扩展仅使用 GET 参数 'language' 和会话参数 'userlanguage'。你可以看到这个方法必须返回一个数组。
 
-### 测试
+## 测试
 
 要运行测试，你需要在测试文件夹下安装 `phpunit/phpunit` 包。
 
@@ -191,14 +191,14 @@ composer require --dev phpunit/phpunit
 ./vendor/bin/phpunit --testdox tests
 ```
 
-### 许可证
+## 许可证
 
 该项目根据 MIT 许可证授权 - 详情请参阅 [LICENSE](LICENSE) 文件。
 
-### 贡献
+## 贡献
 
 欢迎贡献！请随时 fork 项目并提交 pull requests。
 
-### 联系方式
+## 联系方式
 
 如有任何问题或问题，请打开问题或直接联系作者。
