@@ -51,7 +51,7 @@ somethingother = "Something other..."
 - Preserve language region variants: if set to true, region variants in language code strings such as en-US and en-GB will be preserved, otherwise will be trimmed to en (default: `true`, **NOTE** in the original i18n lib this value is default *false* )
 - The fallback language, if no one of the user languages is available (default: `en-US`, **NOTE** in the original i18n lib this value is default *en* )
 - A forced language, if you want to force a language (default: `none`)
-- The section separator: this is used to seperate the sections in the language class. If you set the separator to _abc_ you could access your localized strings via `$L->t('category_abc_stringname')` if you use categories in your ini. (default: `_`)
+- The section separator: this is used to seperate the sections in the language class. If you set the separator to \_abc\_ you could access your localized strings via `$L->t('category_abc_stringname')` if you use categories in your ini. (default: `_`)
 - Merge keys from the fallback language into the current language. (default: `false`)
 
 
